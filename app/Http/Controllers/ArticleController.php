@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Cache;
 use App\Article;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateArticle;
 use App\Http\Requests\StoreArticle;
+use App\Http\Requests\UpdateArticle;
 
 class ArticleController extends Controller
 {
@@ -56,7 +56,7 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
-        $this->authorize('update', $article);
+        $this->authorize('delete', $article);
 
         $article->delete();
 
