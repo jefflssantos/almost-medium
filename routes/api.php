@@ -15,3 +15,5 @@ Route::prefix('auth')->group(function() {
     Route::post('/register', 'Auth\RegisterController@register');
     Route::post('/login', 'Auth\LoginController@login');
 });
+
+Route::apiResource('/articles', 'ArticleController');

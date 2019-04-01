@@ -14,5 +14,10 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         Artisan::call('migrate:fresh');
+
+        $this->withHeaders([
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json'
+        ]);
     }
 }
