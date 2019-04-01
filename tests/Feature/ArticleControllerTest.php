@@ -10,7 +10,7 @@ use App\Http\Resources\Article as ArticleResource;
 class ArticleControllerTest extends TestCase
 {
     /** @test */
-    public function can_list_user_articles()
+    public function can_list_articles()
     {
         $user = factory(User::class)->create();
 
@@ -42,5 +42,12 @@ class ArticleControllerTest extends TestCase
                     ],
                 ]
             ]);
+    }
+
+    /** @test */
+    public function unauthenticated_users_can_not_list_articles()
+    {
+        $this->get('/api/articles')
+            ->assertStatus(401);
     }
 }
