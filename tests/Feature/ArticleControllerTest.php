@@ -19,9 +19,7 @@ class ArticleControllerTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $articles = factory(Article::class, 10)->create([
-            'user_id' => $user->id
-        ]);
+        $articles = factory(Article::class, 10)->create();
 
         $this->actingAs($user, 'api')
             ->json('GET', '/api/articles')
