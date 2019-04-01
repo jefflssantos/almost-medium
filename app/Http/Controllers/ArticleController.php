@@ -21,7 +21,7 @@ class ArticleController extends Controller
 
         return Cache::tags('articles')
             ->rememberForever($key, function () {
-                return Article::latest('id')->paginate();
+                return Article::latest()->paginate();
             });
     }
 
